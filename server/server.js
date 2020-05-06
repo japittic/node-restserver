@@ -1,54 +1,34 @@
 const express = require('express');
 const app = express();
+
+const mongoose = require('mongoose');
+
 const bodyParser = require('body-parser');
 require('./config/config');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(require('./routes/usuario'));
 // parse application/json
 app.use(bodyParser.json());
+// const dbpath = "mongodb://localhost:27017/cafe";
+const dbpath = process.env.URLDB;
 
-
-app.get('/usuario', function(req, res) {
-    res.json('get Usuario');
-});
-
-
-app.post('/usuario', function(req, res) {
-
-    let body = req.body;
-
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false,
-            mensaje: 'El nombre es necesario'
-        });
-
-
-
-    } else {
-        res.json({
-            body: body,
-            nombre: "Juan de Dios"
-        });
-    }
-
-});
+mongoose
+    .connect(dbpath, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useFindAndModify: false
+    })
+    .then(() => console.log('DB Connected!'))
+    .catch(err => {
+        console.log(`DB Connection Error: ${err.message}`);
+    })
 
 
 
-app.put('/usuario/:id', function(req, res) {
-
-    let id = req.params.id;
-    res.json({
-        id: id
-    });
-});
-
-app.delete('/usuario', function(req, res) {
-    res.json('delete Usuario');
-});
 
 app.listen(process.env.PORT);
 console.log('Escuchando el puerto 3000');
