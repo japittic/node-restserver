@@ -55,6 +55,7 @@ usuarioSchema.methods.toJSON = function() {
 
 }
 
+
 usuarioSchema.plugin(uniqueValidator, {
 
     message: '{PATH} debe ser unico'
