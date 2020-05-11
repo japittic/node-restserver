@@ -8,7 +8,10 @@ require('./config/config');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(require('./routes/usuario'));
+
+// Configuracion global de rutas
+app.use(require('./routes/index'));
+
 // parse application/json
 app.use(bodyParser.json());
 // const dbpath = "mongodb://localhost:27017/cafe";
