@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const path = require('path');
 const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
@@ -14,7 +14,11 @@ app.use(require('./routes/index'));
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(express.static(path.resolve(__dirname, '../public')));
 // const dbpath = "mongodb://localhost:27017/cafe";
+
+console.log(path.resolve(__dirname, '../public'));
 const dbpath = process.env.URLDB;
 
 mongoose

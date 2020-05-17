@@ -1,27 +1,43 @@
+// ============================
+//  Puerto
+// ============================
 process.env.PORT = process.env.PORT || 3000;
-// process.env.Caducidad_token = 60 * 60 * 24 * 30;
-process.env.Caducidad_token = '48d'
-    // let mitoken;
-process.env.seed_token = 'secret';
 
+
+// ============================
+//  Entorno
+// ============================
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
-process.env.seed = process.env.seed || 'secret';
-let urlDb;
 
+// ============================
+//  Vencimiento del Token
+// ============================
+// 60 segundos
+// 60 minutos
+// 24 horas
+// 30 días
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+
+
+// ============================
+//  SEED de autenticación
+// ============================
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
+
+// ============================
+//  Base de datos
+// ============================
+let urlDB;
 
 if (process.env.NODE_ENV === 'dev') {
-
-    urlDb = 'mongodb://localhost:27017/cafe'
+    urlDB = 'mongodb://localhost:27017/cafe';
 } else {
-    // urlDb = process.env.MONGO_URI;
-    // urlDb = 'mongodb://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net:13209/cafe'
-    // urlDb = 'mongodb://japittic:exJC9awL3VgYKOD8@cluster0-shard-00-01-si9da.mongodb.net:27017/cafe'
-    urlDb = 'mongodb+srv://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net/test?retryWrites=true&w=majority'
+    urlDB = process.env.MONGO_URI;
 }
-// urlDb = 'mongodb+srv://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net/cafe'
-// "mongodb://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net:27017/cafe"
-// urlDb = 'mongodb://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net:27017/cafe'
-// const uri = "mongodb+srv://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net/test?retryWrites=true&w=majority";
+process.env.URLDB = urlDB;
 
-process.env.URLDB = urlDb;
+// ============================
+//  Google Client ID
+// ============================
+process.env.ID_CLIENT = process.env.ID_CLIENT || '753166329400-qigghtm35pts1ant8pmm77af5nio62j5.apps.googleusercontent.com';
