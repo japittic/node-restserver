@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'dev') {
     // urlDB = 'mongodb+srv://alx_admin:SuperAdmin@serapeum-edlmi.mongodb.net/test'
     var user = 'japittic';
     var pass = 'exJC9awL3VgYKOD8';
-    var DataBaseName = 'Cafe';
+    var DataBaseName = 'cafe';
     urlDB = `mongodb+srv://${user}:${pass}@cluster0-si9da.mongodb.net/${DataBaseName}?retryWrites=true&w=majority`
 }
 process.env.URLDB = urlDB;
