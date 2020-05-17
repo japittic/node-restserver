@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'dev') {
     var user = 'japittic';
     var pass = 'exJC9awL3VgYKOD8';
     var DataBaseName = 'cafe';
-    urlDB = `mongodb+srv://${user}:${pass}@cluster0-si9da.mongodb.net:13209/${DataBaseName}?retryWrites=true&w=majority`
+    urlDB = `mongodb+srv://${user}:${pass}@cluster0-si9da.mongodb.net/${DataBaseName}?retryWrites=true&w=majority`
 }
 process.env.URLDB = urlDB;
 
