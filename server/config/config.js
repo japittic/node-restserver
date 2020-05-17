@@ -34,7 +34,12 @@ if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/cafe';
 } else {
     // urlDB = process.env.MONGO_URI;
-    urlDb = 'mongodb://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net:13209/cafe?authSource=admin&ssl=true'
+    // urlDb = 'mongodb://japittic:exJC9awL3VgYKOD8@cluster0-si9da.mongodb.net:13209/cafe?authSource=admin&ssl=true'
+    // urlDB = 'mongodb+srv://alx_admin:SuperAdmin@serapeum-edlmi.mongodb.net/test'
+    var user = 'japittic';
+    var pass = 'exJC9awL3VgYKOD8';
+    var DataBaseName = 'Cafe';
+    urlDB = `mongodb+srv://${user}:${pass}@cluster0-si9da.mongodb.net/${DataBaseName}?retryWrites=true&w=majority`
 }
 process.env.URLDB = urlDB;
 
