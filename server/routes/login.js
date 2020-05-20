@@ -35,9 +35,11 @@ app.post('/login', (req, res) => {
                 }
             });
         }
+        // console.log(token);
 
-
-        if (!bcrypt.compareSync(body.password, usuarioDB.password)) {
+        if (bcrypt.compareSync(body.password, usuarioDB.password)) {
+            // console.log('pass postman:' + body.password);
+            // console.log('pass bd:' + usuarioDB.password);
             return res.status(400).json({
                 ok: false,
                 err: {

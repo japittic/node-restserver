@@ -3,7 +3,7 @@
 // ============================
 process.env.PORT = process.env.PORT || 3000;
 // process.env.PORT = 8080;
-
+process.env.seed_token = 'secret';
 // ============================
 //  Entorno
 // ============================
@@ -17,13 +17,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 // 60 minutos
 // 24 horas
 // 30 días
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.CADUCIDAD_TOKEN = '144h'; //90 * 60 * 120 * 30;
 
 
 // ============================
 //  SEED de autenticación
 // ============================
-process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
+process.env.SEED = process.env.SEED || 'secret';
 
 // ============================
 //  Base de datos
