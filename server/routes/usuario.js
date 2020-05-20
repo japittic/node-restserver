@@ -13,8 +13,8 @@ const { verificaToken, verificaAdminRole } = require('../middlewares/autenticaci
 // const bodyParser = require('body-parser');
 // require('./config/config');
 
-app.get('/usuario', verificaToken, (req, res) => {
-
+// app.get('/usuario', verificaToken, (req, res) => {
+app.get('/usuario', (req, res) => {
 
 
     let desde = req.query.desde || 0;
