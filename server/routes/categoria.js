@@ -43,7 +43,8 @@ app.put('/categoria/:id', (req, res) => {
 
 }); //fin del get
 
-
+// Le vamos a quitar el validatoken para ver si funciona en heroku
+// app.post('/categoria', verificaToken, (req, res) => {
 app.post('/categoria', verificaToken, (req, res) => {
     let body = req.body;
     let categoria = new Categoria({

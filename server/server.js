@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 require('./config/config');
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 // Configuracion global de rutas
 app.use(require('./routes/index'));
 
